@@ -1,0 +1,159 @@
+/* Base Styles */
+html, body {
+    height: 100%;
+    margin: 0;
+    overflow: hidden;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to bottom, #202020, #111119);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+/* RIP Speaker Text */
+.rip {
+    color: white;
+    font-size: 2rem;
+    margin: 20px 0; /* Adds spacing above and below */
+    text-align: center;
+}
+
+/* Speaker Image */
+#speaker .yumaong-speaker {
+    width: 300px;
+    height: auto;
+    margin: 20px 0; /* Adds spacing above and below */
+}
+
+/* Year */
+.year {
+    color: white;
+    font-size: 1.5rem;
+    margin: 10px 0;
+    text-align: center;
+}
+
+/* Purchase Date */
+.buy-date {
+    color: white;
+    font-size: 1rem;
+    margin: 5px 0;
+    text-align: center;
+}
+
+/* Death Date */
+.death-date {
+    color: white;
+    font-size: 1rem;
+    margin: 5px 0;
+    text-align: center;
+}
+
+/* Message */
+.message {
+    color: white;
+    font-size: 1.2rem;
+    margin-top: 20px;
+    text-align: center;
+}
+
+/* Give Flowers Button */
+.give-flowers-btn {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 1rem;
+    background-color: #f06292;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    z-index: 10; /* Ensure the button stays above the rain */
+}
+
+.give-flowers-btn:hover {
+    background-color: #ec407a;
+}
+
+/* Flower Animation */
+.flower-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none; /* Make sure it doesn't block clicks */
+    overflow: hidden;
+    z-index: 20; /* Ensure flowers are above the rain */
+}
+
+.flower {
+    position: absolute;
+    font-size: 2rem;
+    animation: bloom 3s ease-out forwards;
+    opacity: 0;
+}
+
+@keyframes bloom {
+    0% {
+        opacity: 0;
+        transform: scale(0) translateY(50px);
+    }
+    50% {
+        opacity: 1;
+        transform: scale(1.2) translateY(0);
+    }
+    100% {
+        opacity: 0;
+        transform: scale(1) translateY(-50px);
+    }
+}
+
+/* Rain Animation */
+.rain {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    pointer-events: none; /* Make sure rain doesn't block clicks */
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .rip {
+        font-size: 1.8rem;
+    }
+
+    #speaker .yumaong-speaker {
+        width: 250px;
+    }
+
+    .year, .buy-date, .death-date, .message {
+        font-size: 1rem;
+    }
+
+    .give-flowers-btn {
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .rip {
+        font-size: 1.5rem;
+    }
+
+    #speaker .yumaong-speaker {
+        width: 200px;
+    }
+
+    .year, .buy-date, .death-date, .message {
+        font-size: 0.9rem;
+    }
+
+    .give-flowers-btn {
+        font-size: 0.8rem;
+        padding: 8px 15px;
+    }
+}
